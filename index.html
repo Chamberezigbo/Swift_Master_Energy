@@ -1690,6 +1690,57 @@ position: absolute;
                 height: 34px;
             }
         }
+
+                /* ========== TESTIMONIALS - DESKTOP & MOBILE ========== */
+        /* Desktop view - 3 columns */
+        .testimonials-desktop {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        /* Mobile view - hidden on desktop */
+        .testimonials-mobile {
+            display: none;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .testimonials-mobile::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .scroll-hint {
+            display: none;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .testimonials-desktop {
+                display: none !important;
+            }
+            .testimonials-mobile {
+                display: block !important;
+            }
+            .scroll-hint {
+                display: block !important;
+            }
+        }
+        
+        /* Desktop hover effect */
+        @media (min-width: 769px) {
+            .testimonials-desktop > div {
+                transition: all 0.3s ease;
+            }
+            .testimonials-desktop > div:hover {
+                transform: translateY(-5px);
+                border-color: rgba(255,204,0,0.2);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            }
+        }
     </style>
 </head>
 <body>
@@ -1723,6 +1774,7 @@ position: absolute;
             </div>
             <a href="#overview">Overview</a>
             <a href="#why-choose-us">Advantages</a>
+            <a href="#testimonials">Testimonials</a>
             <a href="#pricing">Pricing</a>
             <a href="#contact-modern">Contact</a>
         </nav>
@@ -1760,6 +1812,7 @@ position: absolute;
                 </div>
                 <a href="#overview"><i class="fa-solid fa-video"></i> Overview</a>
                 <a href="#why-choose-us"><i class="fa-solid fa-medal"></i> Advantages</a>
+                 <a href="#testimonials"><i class="fa-solid fa-star"></i> Testimonials</a>
                 <a href="#pricing"><i class="fa-solid fa-tag"></i> Pricing</a>
                 <a href="#contact-modern"><i class="fa-regular fa-envelope"></i> Contact</a>
             </nav>
@@ -2084,6 +2137,141 @@ position: absolute;
         </div>
     </section>
 
+         <!-- ========== TESTIMONIALS SECTION (SWIPEABLE ON MOBILE) ========== -->
+    <section id="testimonials" class="reveal-node" style="padding: 5rem 5%; background: linear-gradient(145deg, #0B0F17, #0F1422); border-top: 1px solid rgba(255,204,0,0.1); border-bottom: 1px solid rgba(255,204,0,0.1); overflow-x: hidden;">
+        <div style="max-width: 1300px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our <span>Customers Say</span></h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Trusted by hundreds of homeowners and businesses across Nigeria</p>
+            </div>
+            
+            <!-- Desktop Grid View (hidden on mobile) -->
+            <div class="testimonials-desktop" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <!-- Testimonial 1 -->
+                <div style="background: var(--surface-card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease;">
+                    <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                    <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">"Swift Master Energy transformed our home. The installation was professional, and our electricity bill has reduced by over 60%. The battery backup works flawlessly during outages."</p>
+                    <div>
+                        <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Oluwaseun Adebayo</h4>
+                        <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.8rem;">Homeowner, Lagos</p>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div style="background: var(--surface-card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease;">
+                    <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                    <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">"Excellent customer service from start to finish. The team guided us through the entire process and recommended the perfect system for our business. Highly recommended!"</p>
+                    <div>
+                        <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Chioma Eze</h4>
+                        <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.8rem;">Business Owner, Abuja</p>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div style="background: var(--surface-card); border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.03); transition: all 0.3s ease;">
+                    <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 2rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                    <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">"The solar batteries are top quality. We've had zero issues since installation over a year ago. The team provides excellent after-sales support."</p>
+                    <div>
+                        <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Michael Okonkwo</h4>
+                        <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                            <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.8rem;"></i>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.8rem;">Engineer, Port Harcourt</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Carousel View (hidden on desktop) -->
+            <div class="testimonials-mobile" style="position: relative; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; display: none; gap: 1rem; padding-bottom: 1rem;">
+                <div style="display: flex; gap: 1.5rem; padding: 0.5rem 0;">
+                    <!-- Testimonial 1 -->
+                    <div style="flex: 0 0 85%; scroll-snap-align: start; background: var(--surface-card); border-radius: 24px; padding: 1.8rem; border: 1px solid rgba(255,255,255,0.03);">
+                        <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.8rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                        <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.2rem; font-size: 0.9rem;">"Swift Master Energy transformed our home. The installation was professional, and our electricity bill has reduced by over 60%."</p>
+                        <div>
+                            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Oluwaseun Adebayo</h4>
+                            <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            </div>
+                            <p style="color: var(--text-muted); font-size: 0.75rem;">Homeowner, Lagos</p>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div style="flex: 0 0 85%; scroll-snap-align: start; background: var(--surface-card); border-radius: 24px; padding: 1.8rem; border: 1px solid rgba(255,255,255,0.03);">
+                        <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.8rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                        <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.2rem; font-size: 0.9rem;">"Excellent customer service from start to finish. The team guided us through the entire process and recommended the perfect system."</p>
+                        <div>
+                            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Chioma Eze</h4>
+                            <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            </div>
+                            <p style="color: var(--text-muted); font-size: 0.75rem;">Business Owner, Abuja</p>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div style="flex: 0 0 85%; scroll-snap-align: start; background: var(--surface-card); border-radius: 24px; padding: 1.8rem; border: 1px solid rgba(255,255,255,0.03);">
+                        <i class="fa-solid fa-quote-left" style="color: var(--primary); font-size: 1.8rem; opacity: 0.5; margin-bottom: 1rem; display: inline-block;"></i>
+                        <p style="color: var(--text-light); line-height: 1.6; margin-bottom: 1.2rem; font-size: 0.9rem;">"The solar batteries are top quality. We've had zero issues since installation over a year ago. Excellent after-sales support."</p>
+                        <div>
+                            <h4 style="font-weight: 700; margin-bottom: 0.25rem;">Michael Okonkwo</h4>
+                            <div style="display: flex; gap: 3px; margin-bottom: 0.5rem;">
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                                <i class="fa-solid fa-star" style="color: var(--primary); font-size: 0.7rem;"></i>
+                            </div>
+                            <p style="color: var(--text-muted); font-size: 0.75rem;">Engineer, Port Harcourt</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Hint for Mobile -->
+            <div class="scroll-hint" style="text-align: center; margin-top: 1.5rem; display: none;">
+                <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,204,0,0.1); padding: 0.5rem 1rem; border-radius: 40px;">
+                    <i class="fa-solid fa-arrow-left" style="color: var(--primary); font-size: 0.7rem;"></i>
+                    <span style="color: var(--text-muted); font-size: 0.7rem;">Swipe to see more reviews</span>
+                    <i class="fa-solid fa-arrow-right" style="color: var(--primary); font-size: 0.7rem;"></i>
+                </div>
+            </div>
+
+            <!-- Trust Badge -->
+            <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <div><span style="color: var(--primary); font-weight: 800; font-size: 1.2rem;">500+</span><p style="color: var(--text-muted); font-size: 0.8rem;">Happy Customers</p></div>
+                    <div><span style="color: var(--primary); font-weight: 800; font-size: 1.2rem;">98%</span><p style="color: var(--text-muted); font-size: 0.8rem;">Satisfaction Rate</p></div>
+                    <div><span style="color: var(--primary); font-weight: 800; font-size: 1.2rem;">4.9</span><p style="color: var(--text-muted); font-size: 0.8rem;">Average Rating</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
             <section id="pricing" class="reveal-node">
         <div style="text-align: center;">
             <span class="section-tag">Pricing Framework</span>
@@ -2150,9 +2338,9 @@ position: absolute;
                         <div><h4 style="font-weight: 700;">Email</h4><p style="color: var(--text-muted);">info@bestswiftservices.com</p></div>
                     </div>
                     <div style="display: flex; gap: 1rem; margin-bottom: 2rem; align-items: center;">
-                        <div style="width: 50px; height: 50px; background: rgba(255,204,0,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center;"><i class="fa-brands fa-whatsapp" style="color: #25D366; font-size: 1.3rem;"></i></div>
-                        <div><h4 style="font-weight: 700;">WhatsApp</h4><p style="color: var(--text-muted);">+234 800 987 6543</p></div>
-                    </div>
+    <div style="width: 50px; height: 50px; background: rgba(255,204,0,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-phone" style="color: var(--primary); font-size: 1.3rem;"></i></div>
+    <div><h4 style="font-weight: 700;">Call Us</h4><p style="color: var(--text-muted);"><a href="tel:+2348009876543" style="color: var(--text-muted); text-decoration: none;">+234 800 987 6543</a></p></div>
+</div>
                     <div style="display: flex; gap: 1rem; align-items: center;">
                         <div style="width: 50px; height: 50px; background: rgba(255,204,0,0.1); border-radius: 30px; display: flex; align-items: center; justify-content: center;"><i class="fa-regular fa-clock" style="color: var(--primary); font-size: 1.3rem;"></i></div>
                         <div><h4 style="font-weight: 700;">24/7 Support</h4><p style="color: var(--text-muted);">Global assistance ready</p></div>
@@ -2621,7 +2809,7 @@ position: absolute;
                 message += `%0A`;
                 message += `Reply via WhatsApp to continue the conversation.%0A`;
                 message += `%0A`;
-                message += `Generated from swiftmasterenergy.com`;
+                message += `This message was is from swiftmasterenergy.com`;
                 
                 return message;
             }
@@ -2652,7 +2840,7 @@ position: absolute;
                 body += `The customer is requesting pricing and technical specifications for solar energy systems. Please respond as soon as possible.\n`;
                 body += `──────────────────────────\n`;
                 body += `\n`;
-                body += `This message was auto-generated from swiftmasterenergy.com`;
+                body += `This message was is from swiftmasterenergy.com`;
                 
                 return body;
             }
